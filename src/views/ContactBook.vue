@@ -8,7 +8,11 @@
         Danh bạ
         <i class="fas fa-address-book"></i>
       </h4>
-      <ContactList v-if="filteredContactsCount > 0" :contacts="filteredContacts" v-model:active-index="activeIndex" />
+      <ContactList
+        v-if="filteredContactsCount > 0"
+        :contacts="filteredContacts"
+        v-model:active-index="activeIndex"
+      />
       <p v-else>Không có liên hệ nào.</p>
       <div class="mt-3 row justify-content-around align-items-center">
         <button class="btn btn-sm btn-primary" @click="refreshList">
@@ -22,14 +26,25 @@
         </button>
       </div>
     </div>
-  </div>
-  <div class="mt-3 col-md-6">
-    <div v-if="activeContact">
-      <h4>
-        Chi tiết liên hệ
-        <i class="fas fa-address-card"></i>
-      </h4>
-      <ContactCard :contact="activeContact" />
+
+    <div class="mt-3 col-md-6">
+      <div v-if="activeContact">
+        <h4>
+          Chi tiết liên hệ
+          <i class="fas fa-address-card"></i>
+        </h4>
+        <ContactCard :contact="activeContact" />
+        <router-link
+          :to="{
+            name: 'contact.edit',
+            params: { id: activeContact._id },
+          }"
+        >
+          <span class="mt-2 badge badge-warning">
+            <i class="fas fa-edit"></i>Hiệu chỉnh
+          </span>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -71,7 +86,7 @@ export default {
       }
       return this.contacts.filter((contact, index) =>
         this.contactStrings[index].includes(this.searchText),
-      );  
+      );
     },
     activeContact() {
       if (this.activeIndex < 0) {
@@ -121,4 +136,3 @@ export default {
   max-width: 750px;
 }
 </style>
-
