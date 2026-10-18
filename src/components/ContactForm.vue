@@ -1,7 +1,7 @@
 <template>
   <Form @submit="submitContact" :validation-schema="contactFormSchema">
     <div class="form-group">
-      <label for="name">Tên</label>
+      <Label for="name">Tên</Label>
       <Field
         name="name"
         type="text"
@@ -11,7 +11,7 @@
       <ErrorMessage name="name" class="error-feedback" />
     </div>
     <div class="form-group">
-      <label for="email">Email</label>
+      <Label for="email">Email</Label>
       <Field
         name="email"
         type="email"
@@ -21,7 +21,7 @@
       <ErrorMessage name="email" class="error-feedback" />
     </div>
     <div class="form-group">
-      <label for="address">Địa chỉ</label>
+      <Label for="address">Địa chỉ</Label>
       <Field
         name="address"
         type="text"

@@ -28,7 +28,7 @@
     </div>
 
     <div class="mt-3 col-md-6">
-      <div v-if="activeContact">
+      <div v-if="activeContact">  
         <h4>
           Chi tiết liên hệ
           <i class="fas fa-address-card"></i>
